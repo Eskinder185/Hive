@@ -1,0 +1,94 @@
+/* =====================
+   Glowing Honeycomb Background
+===================== */
+
+:root {
+  --honey: #ffc107;
+  --honey-light: #ffe082;
+  --amber: #f6c453;
+  --dark: #1a1313;
+}
+
+body, html {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  font-family: system-ui, Inter, sans-serif;
+  background: var(--dark);
+  color: #3b2f2f;
+}
+
+/* Honeycomb grid with glow effect */
+.honeycomb-bg {
+  position: fixed;
+  inset: 0;
+  background:
+    linear-gradient(30deg, rgba(255,193,7,0.25) 12%, transparent 12.5%, transparent 87%, rgba(255,193,7,0.25) 87.5%) 0 0 / 4em 7em,
+    linear-gradient(150deg, rgba(255,193,7,0.25) 12%, transparent 12.5%, transparent 87%, rgba(255,193,7,0.25) 87.5%) 0 0 / 4em 7em,
+    linear-gradient(90deg, rgba(255,193,7,0.15) 2.5%, transparent 2.5%, transparent 97.5%, rgba(255,193,7,0.15) 97.5%) 0 0 / 4em 7em;
+  animation: honeyPulse 6s ease-in-out infinite;
+  z-index: 0;
+}
+
+/* glowing pulse animation */
+@keyframes honeyPulse {
+  0%, 100% { filter: drop-shadow(0 0 8px var(--honey-light)) brightness(1); }
+  50% { filter: drop-shadow(0 0 18px var(--honey)) brightness(1.2); }
+}
+
+/* Shiny highlight shimmer across cells */
+.honey-shine {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255, 255, 200, 0.35) 40%,
+    transparent 80%
+  );
+  background-size: 200% 100%;
+  animation: honeyShimmer 8s linear infinite;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+@keyframes honeyShimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Floating bees for fun */
+.bee {
+  position: fixed;
+  font-size: 22px;
+  filter: drop-shadow(0 3px 6px rgba(0,0,0,0.4));
+  animation: buzz 20s linear infinite;
+  opacity: 0.85;
+}
+
+.bee:nth-child(1) { top: 20%; left: -10%; animation-duration: 18s; }
+.bee:nth-child(2) { top: 50%; left: -15%; animation-duration: 24s; }
+.bee:nth-child(3) { top: 70%; left: -12%; animation-duration: 28s; }
+
+@keyframes buzz {
+  0% { transform: translateX(0) translateY(0) rotate(6deg); }
+  25% { transform: translateX(30vw) translateY(-2vh) rotate(-6deg); }
+  50% { transform: translateX(60vw) translateY(2vh) rotate(8deg); }
+  75% { transform: translateX(90vw) translateY(-1vh) rotate(-4deg); }
+  100% { transform: translateX(120vw) translateY(0) rotate(0deg); }
+}
+
+/* Center sign-in card */
+.signin-card {
+  position: relative;
+  z-index: 2;
+  max-width: 420px;
+  margin: 15vh auto;
+  background: rgba(255,255,255,0.9);
+  border: 2px solid var(--amber);
+  border-radius: 18px;
+  padding: 32px;
+  box-shadow: 0 12px 36px rgba(0,0,0,0.25);
+  text-align: center;
+  backdrop-filter: blur(8px);
+}
