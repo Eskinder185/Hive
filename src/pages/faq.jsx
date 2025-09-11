@@ -1,25 +1,50 @@
+import Navbar from "../components/Navbar.jsx";
+
 export default function Faq() {
+  const items = [
+    [
+      "How do I join?",
+      "Ask your neighborhood’s Queen Bee (admin) for an invite code."
+    ],
+    [
+      "Is Hive free?",
+      "Yes. Hive can be hosted free with static hosting and Firebase."
+    ],
+    [
+      "Are my messages private?",
+      "Yes. Hive supports end‑to‑end encryption. Only people with the channel key can read messages."
+    ],
+    [
+      "What roles are there?",
+      "Queens (admins), Soldiers (moderators), and Workers (neighbors)."
+    ],
+    [
+      "What if I lose my invite?",
+      "Contact your Queen Bee to request a new code."
+    ],
+    [
+      "How do I report an issue?",
+      "Open the Safety Center in the app or contact an admin."
+    ]
+  ];
+
   return (
-    <main className="container" style={{ marginTop: 140 }}>
-      <section className="card" style={{ padding: 24 }}>
-        <h1>FAQ ❓</h1>
-
-        <h3>How do I join?</h3>
-        <p>Ask your neighborhood’s Queen Bee for an invite code.</p>
-
-        <h3>Is Hive free?</h3>
-        <p>Yes! Hive is hosted free with GitHub Pages + Firebase.</p>
-
-        <h3>Are my messages private?</h3>
-        <p>
-          Yes. Hive uses end-to-end encryption. Only people with the channel key can read the messages.
-        </p>
-
-        <h3>What roles are there?</h3>
-        <p>
-          👑 Queen Bee (admin), 🛡 Soldier Bee (moderator), 🐝 Worker Bee (neighbor).
-        </p>
-      </section>
-    </main>
+    <>
+      <Navbar />
+      <main className="container" style={{ marginTop: 12 }}>
+        <section className="stack">
+          <h1>FAQ</h1>
+          <div className="accordion">
+            {items.map(([q,a]) => (
+              <details key={q} className="ac-item">
+                <summary className="ac-summary">{q}</summary>
+                <div className="ac-content">{a}</div>
+              </details>
+            ))}
+          </div>
+        </section>
+      </main>
+    </>
   );
 }
+
