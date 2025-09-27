@@ -74,9 +74,7 @@ cd Hive
 npm install
 
 
-Run locally:
 
-npm run dev
 
 
 Build & deploy to GitHub Pages:
