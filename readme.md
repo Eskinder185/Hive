@@ -1,100 +1,38 @@
-🐝 Hive — Private Neighborhood Chat
+# 🐝 Hive — Private Neighborhood Chat
 
-Hive is a secure, invite-only chat app designed for neighborhoods.
-It combines Firebase for authentication and data storage, Gemini AI for moderation and safety, and built-in security measures to protect private conversations.
+![Built with](https://img.shields.io/badge/Frontend-React%20%2B%20Vite-blue)
+![Backend](https://img.shields.io/badge/Backend-Firebase%20(Auth%2FFirestore%2FFunctions)-ffca28)
+![AI Safety](https://img.shields.io/badge/AI-Gemini%20Moderation-8a2be2)
+![Deploy](https://img.shields.io/badge/Deploy-GitHub%20Pages-181717)
+![License](https://img.shields.io/badge/License-MIT-lightgrey)
 
-🚀 Features
+**Hive** is a secure, invite-only neighborhood chat. Members join with an invite code, chat in rooms or 1-on-1, and stay safe with **Gemini-assisted** content moderation and strict **RBAC**.
 
-🔐 Private, Invite-Only Access — only neighbors with an invite code can join.
+> 🔐 **Privacy first:** Auth via Firebase Email Link Sign-In; routes gated behind Auth.  
+> 🧠 **Safety:** Gemini helps flag unsafe content for **Soldiers** (mods) and **Queen Bee** (admin).
 
-👑 Role System —
+[🌐 Live Demo](#) · [🔧 Setup](#-setup) · [🚀 Deploy](#-deploy) · [🛡️ Security](#-security) · [❓FAQ](#-faq)
 
-Queen Bee → Admin (first user, manages roles & invites)
+---
 
-Soldier Bees → Moderators / security officers
+## 🚀 Features
 
-Worker Bees → Regular neighbors
+- **Invite-Only Access:** Join requires a valid **invite code** (scoped by neighborhood).
+- **RBAC (Bee Roles):**
+  - **Queen Bee** → Admin (first user; manages roles & invites)
+  - **Soldier Bees** → Moderators / safety officers
+  - **Worker Bees** → Regular neighbors
+- **Chat Rooms:** neighborhood / safety alerts / events / help channels.
+- **Direct Messages:** secure Worker ↔ Soldier/Admin threads.
+- **AI Safety (optional):** **Gemini** moderation (toxicity, threats, doxxing signals).
+- **Deployed on GitHub Pages:** Vite SPA → gh-pages.
+- **Honeycomb UI:** themed CSS for trust + clarity (light/dark ready).
 
-💬 Chat Rooms — neighborhood, safety alerts, events, and help channels.
+---
 
-📩 1-on-1 Messaging — workers can securely message Soldiers or Admin.
+## 🧩 Tech Stack
 
-🌐 Deployed on GitHub Pages with Vite + React.
-
-🛠 Tech Stack
-
-Frontend: React + Vite (modern SPA framework)
-
-Backend: Firebase (Auth, Firestore, Functions)
-
-Deployment: GitHub Pages (gh-pages branch auto-deploy)
-
-AI Safety: Gemini AI (for message moderation & neighborhood content safety)
-
-🔑 Security Measures
-
-Hive is built with security first:
-
-Authentication — Firebase Email Link Sign-In + optional anonymous guest access.
-
-Role-Based Access Control (RBAC) — Admins (Queen Bees) manage Soldiers/Workers via Firestore.
-
-Data Protection —
-
-Firestore stores only ciphertext (no plain text messages).
-
-No passwords stored (passwordless email links).
-
-AI Moderation — Gemini AI assists in:
-
-Detecting inappropriate/unsafe content.
-
-Flagging suspicious behavior to Soldiers/Admins.
-
-Frontend Protections —
-
-Restricted routes (can’t access /app without signing in).
-
-Honeycomb security-themed UI to reinforce trust.
-
-📂 Project Structure
-/src
-  /components   → AuthGate, ChatRoom, Admin panel
-  /pages        → SignInPage, Landing, Invite, About, FAQ
-  firebase.js   → Firebase config
-  honey.css     → Hive theme background
-  signin.css    → Secure login background
-
-🔧 Development
-
-Clone the repo:
-
-git clone https://github.com/Eskinder185/Hive.git
-cd Hive
-npm install
-
-
-Run locally:
-
-npm run dev
-
-
-Build & deploy to GitHub Pages:
-
-npm run deploy
-
-🌟 Roadmap
-
-✅ Sign-in system (email links & anonymous guests)
-
-✅ Role management (Admin assigns Soldiers & Workers)
-
-🚧 AI moderation integration with Gemini API
-
-🚧 Encrypted DMs between Soldiers/Admins & Workers
-
-🚧 Mobile-friendly PWA support
-
-📜 License
-
-MIT License © 2025 — Built with ❤️ for neighborhoods.
+- **Frontend:** React + Vite, React Router, Tailwind (optional)
+- **Backend:** Firebase **Auth** (email link), **Firestore**, **Cloud Functions**
+- **AI Safety:** Google **Gemini** API (server-side mod endpoint)
+- **Deploy:** GitHub Pages (gh-pages branch or Actions)
